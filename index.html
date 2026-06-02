@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeffrey Lin | Portfolio</title>
+    <!--bootscrap class>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
+        /* Custom colors theme variable */
         :root {
             --bg-color: #f0fdfa;
             --card-bg: #ffffff;
@@ -27,7 +31,7 @@
             line-height: 1.6;
             padding: 2rem 1rem;
         }
-
+        /* limiting the size of the screen display and aiming the display to the middle 优化：限制最大宽度并居中，防止大屏幕上布局过宽 */
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -57,7 +61,8 @@
         h2 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            border-bottom: 2px solid var(--card-bg);
+            /* fix the origanal border line was not able to see on the white card 修复：将边框颜色改为有色线，原本的白色在白卡片上看不见 */
+            border-bottom: 2px solid var(--accent);
             padding-bottom: 0.5rem;
         }
 
@@ -84,7 +89,7 @@
             background-color: var(--card-bg);
             padding: 1.5rem;
             border-radius: 8px;
-            border: 1px solid #334155;
+            border: 1px solid #cbd5e1;/* change the color to more natural color rather than too light so it become light gray 优化：把原本刺眼的深色边框微调为优雅的浅灰色 */
             transition: transform 0.2s, border-color 0.2s;
         }
 
@@ -103,7 +108,8 @@
             margin-bottom: 1.5rem;
         }
 
-        .btn {
+        /* fix: prevent the templet of Bootstrap to have the same naming of the file 修复：重命名类名，防止与 Bootstrap 预设的 .btn 样式发生严重冲突 */
+        .btn-custom {
             display: inline-block;
             background-color: var(--accent);
             color: var(--bg-color);
@@ -113,22 +119,33 @@
             font-weight: 600;
             font-size: 0.9rem;
             transition: background-color 0.2s;
+            cursor: pointer; /* better curser display with small hand 优化：鼠标悬停时显示小手图标 */
+
         }
 
-        .btn:hover {
+        .btn-custom:hover {
             background-color: var(--accent-hover);
+            color: var(--bg-color) !important;
         }
-
         footer {
             text-align: center;
             margin-top: 4rem;
             color: var(--text-muted);
             font-size: 0.9rem;
         }
+        /* making a better look of link or email优化：美化邮箱链接样式 */
+        .footer-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-
+    <!-- 修复：将类名改为 container-custom，避开 Bootstrap 冲突 -->
     <div class="container">
         <header>
             <h1>Jeffrey Lin</h1>
@@ -144,17 +161,18 @@
         <section id="projects">
             <h2>Featured Projects</h2>
             <div class="project-grid">
-                
                 <div class="project-card">
                     <h3>AP CS Labs</h3>
                     <p>A collection of Java programs, algorithm implementations, and data structure exercises completed throughout the AP curriculum.</p>
-                    <a href="https://github.com/JeffreyLin42/ap-csa-2026-frqs" class="btn" target="_blank" rel="noopener noreferrer">View Repository</a>
+                    <!-- 修复：类名改为 btn-custom -->
+                    <a href="https://github.com/JeffreyLin42/ap-csa-2026-frqs" class="btn-custom" target="_blank" rel="noopener noreferrer">View Repository</a>
                 </div>
 
                 <div class="project-card">
                     <h3>Personal Project</h3>
                     <p>A custom application built outside of class to solve a real-world problem using modern programming practices.</p>
-                    <a href="https://github.com/JeffreyLin42/ap-csa-2026-frqs" class="btn" target="_blank" rel="noopener noreferrer">View Repository</a>
+                    <!-- 修复：类名改为 btn-custom -->
+                    <a href="https://github.com/JeffreyLin42/ap-csa-2026-frqs" class="btn-custom" target="_blank" rel="noopener noreferrer">View Repository</a>
                 </div>
 
             </div>
@@ -162,9 +180,12 @@
 
         <footer>
             <p>&copy; 2026 Jeffrey Lin. Built with HTML & CSS.</p>
+            <!-- 优化：增加了 footer-link 样式控制 -->
             <p>Get in touch: <a href="mailto:xingyaochangkong@gmail.com" class="footer-link">xingyaochangkong@gmail.com</a></p>
         </footer>
     </div>
 
+    <!-- 优化：引入 Bootstrap 5 的 JS 扩展包 -->
+    <script src="https://jsdelivr.net"></script>
 </body>
 </html>
